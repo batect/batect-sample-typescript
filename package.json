@@ -1,0 +1,9 @@
+{
+  "name": "batect-sample-typescript",
+  "version": "1.0.0",
+  "description": "A TypeScript-based sample application for batect",
+  "main": "index.ts",
+  "repository": "https://github.com/batect/batect-sample-typescript",
+  "author": "Charles Korn <me@charleskorn.com>",
+  "license": "Apache-2.0"
+}

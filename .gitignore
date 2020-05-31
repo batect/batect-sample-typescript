@@ -1,0 +1,13 @@
+# IntelliJ
+/.idea/
+out
+*.iml
+
+# NodeJS
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# batect-specific
+**/.batect/caches
