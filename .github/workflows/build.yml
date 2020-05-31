@@ -1,0 +1,33 @@
+name: Pipeline
+
+on: [push]
+
+jobs:
+  build:
+    name: "Build and Test"
+    runs-on: ubuntu-latest
+    env:
+      TERM: xterm-256color
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Cache batect
+        uses: actions/cache@v1
+        with:
+          path: ~/.batect/cache
+          key: batect-${{ hashFiles('batect') }}
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v1
+        with:
+          path: .batect/caches
+          key: npm-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            npm-
+
+      - name: Download dependencies
+        run: ./batect setup
+
+      - name: Lint code
+        run: ./batect lint
