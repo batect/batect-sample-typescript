@@ -1,6 +1,14 @@
 containers:
   build-env:
     image: node:14.3.0
+    volumes:
+      - local: .
+        container: /code
+        options: cached
+      - type: cache
+        container: /code/node_modules
+        name: node_modules
+    working_directory: /code
 
 tasks:
   hello-world:
@@ -8,3 +16,30 @@ tasks:
     run:
       container: build-env
       command: echo 'Hello world!'
+
+  shell:
+    description: Start a shell in the development environment
+    run:
+      container: build-env
+      command: bash
+
+  setup:
+    description: Install dependencies needed to build and run the application
+    run:
+      container: build-env
+      command: yarn install
+
+  run:
+    description: Run the application
+    run:
+      container: build-env
+      command: yarn exec ts-node index.ts
+      ports:
+        - local: 8080
+          container: 8080
+
+  lint:
+    description: Run linting across all source code
+    run:
+      container: build-env
+      command: yarn exec prettier -- -c *.ts
