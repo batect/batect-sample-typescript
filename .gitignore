@@ -11,3 +11,6 @@ yarn-error.log*
 
 # batect-specific
 **/.batect/caches
+
+# App-specific
+build/

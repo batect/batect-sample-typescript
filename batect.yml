@@ -29,11 +29,19 @@ tasks:
       container: build-env
       command: yarn install
 
-  run:
-    description: Run the application
+  build:
+    description: Build the application
     run:
       container: build-env
-      command: yarn exec ts-node index.ts
+      command: yarn exec tsc -- --outDir build --sourceMap --strict index.ts
+
+  run:
+    description: Run the application
+    prerequisites:
+      - build
+    run:
+      container: build-env
+      command: yarn exec node -- build/index.js
       ports:
         - local: 8080
           container: 8080
@@ -43,3 +51,4 @@ tasks:
     run:
       container: build-env
       command: yarn exec prettier -- -c *.ts
+

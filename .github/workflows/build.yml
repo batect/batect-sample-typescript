@@ -31,3 +31,6 @@ jobs:
 
       - name: Lint code
         run: ./batect lint
+
+      - name: Build application
+        run: ./batect build
