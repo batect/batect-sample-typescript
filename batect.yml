@@ -9,6 +9,9 @@ containers:
         container: /code/node_modules
         name: node_modules
     working_directory: /code
+    run_as_current_user:
+      enabled: true
+      home_directory: /home/container-user
 
 tasks:
   hello-world:
