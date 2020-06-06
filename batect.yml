@@ -13,6 +13,9 @@ containers:
       enabled: true
       home_directory: /home/container-user
 
+  joke-service:
+    image: yesinteractive/dadjokes
+
 tasks:
   hello-world:
     description: Say hello to everyone
@@ -42,6 +45,8 @@ tasks:
     description: Run the application
     prerequisites:
       - build
+    dependencies:
+      - joke-service
     run:
       container: build-env
       command: yarn exec node -- build/index.js
