@@ -24,7 +24,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: .batect/caches
-          key: npm-${{ hashFiles('yarn.lock') }}
+          key: batect-caches-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             npm-
 
