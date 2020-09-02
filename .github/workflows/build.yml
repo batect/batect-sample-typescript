@@ -25,8 +25,6 @@ jobs:
         with:
           path: .batect/caches
           key: batect-caches-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            npm-
 
       - name: Download dependencies
         run: ./batect setup
