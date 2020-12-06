@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Cache batect
+      - name: Cache Batect
         uses: actions/cache@v1
         with:
           path: ~/.batect/cache
