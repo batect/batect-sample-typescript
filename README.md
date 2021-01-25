@@ -1,6 +1,6 @@
 # batect-sample-typescript
 
-![Pipeline](https://github.com/batect/batect-sample-typescript/workflows/Pipeline/badge.svg?branch=master)
+![Pipeline](https://github.com/batect/batect-sample-typescript/workflows/Pipeline/badge.svg?branch=main)
 
 A sample application with [Batect](https://github.com/batect/batect)-based build and testing environments.
 
