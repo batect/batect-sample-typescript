@@ -4,6 +4,13 @@ import * as express from "express";
 const app = express();
 const port = 8080;
 
+interface Response {
+  Joke: {
+    Opener: string;
+    Punchline: string;
+  };
+}
+
 app.get("/", async (req, res) => {
   const response = await fetch("http://joke-service");
 
@@ -13,7 +20,7 @@ app.get("/", async (req, res) => {
     return;
   }
 
-  const responseBody = await response.json();
+  const responseBody = (await response.json()) as Response;
 
   res.send(`Hello from the API! The joke of the day is: ${responseBody.Joke.Opener} ${responseBody.Joke.Punchline}`);
 });
