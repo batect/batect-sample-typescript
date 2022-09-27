@@ -1,6 +1,6 @@
 containers:
   joke-service:
-    image: yesinteractive/dadjokes@sha256:348763aa5b04cfd104b8a0eaf25e9eeb4a7bd3bba965da5aa187c41c310173c2
+    build_directory: .batect/joke-service
 
   app:
     build_directory: .batect/app
@@ -55,7 +55,7 @@ tasks:
     description: Quickly confirm that the built application runs as expected.
     run:
       container: test-env
-      command: curl --fail --silent --show-error http://app:8080/ping
+      command: curl --fail --silent --show-error http://app:8080/
     dependencies:
       - app
     prerequisites:
