@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import * as express from "express";
+import express from "express";
 
 const app = express();
 const port = 8080;
@@ -11,7 +11,7 @@ interface Response {
   };
 }
 
-app.get("/", async (req, res) => {
+app.get("/", async (_, res) => {
   const response = await fetch("http://joke-service");
 
   if (!response.ok) {

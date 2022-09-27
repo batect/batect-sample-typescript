@@ -1,6 +1,6 @@
 containers:
   joke-service:
-    image: yesinteractive/dadjokes
+    image: yesinteractive/dadjokes@sha256:348763aa5b04cfd104b8a0eaf25e9eeb4a7bd3bba965da5aa187c41c310173c2
 
 tasks:
   hello-world:
@@ -25,7 +25,7 @@ tasks:
     description: Build the application
     run:
       container: node-build-env
-      command: yarn exec tsc -- --outDir build --sourceMap --strict index.ts
+      command: yarn exec tsc
 
   run:
     description: Run the application
