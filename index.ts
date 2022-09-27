@@ -25,6 +25,10 @@ app.get("/", async (_, res) => {
   res.send(`Hello from the API! The joke of the day is: ${responseBody.Joke.Opener} ${responseBody.Joke.Punchline}`);
 });
 
+app.get("/ping", async (_, res) => {
+  res.send("pong");
+})
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}.`);
 });

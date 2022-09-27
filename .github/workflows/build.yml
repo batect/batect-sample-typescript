@@ -1,6 +1,6 @@
 name: Pipeline
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -37,3 +37,6 @@ jobs:
 
       - name: Build application
         run: ./batect build
+
+      - name: Test application
+        run: ./batect smoke-test

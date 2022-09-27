@@ -2,6 +2,14 @@ containers:
   joke-service:
     image: yesinteractive/dadjokes@sha256:348763aa5b04cfd104b8a0eaf25e9eeb4a7bd3bba965da5aa187c41c310173c2
 
+  app:
+    build_directory: .batect/app
+    dependencies:
+      - joke-service
+
+  test-env:
+    build_directory: .batect/test-env
+
 tasks:
   hello-world:
     description: Say hello to everyone
@@ -25,17 +33,14 @@ tasks:
     description: Build the application
     run:
       container: node-build-env
-      command: yarn exec tsc
+      command: sh -c "cp package.json .batect/app && cp yarn.lock .batect/app && yarn exec tsc"
 
   run:
     description: Run the application
     prerequisites:
       - build
-    dependencies:
-      - joke-service
     run:
-      container: node-build-env
-      command: yarn exec node -- build/index.js
+      container: app
       ports:
         - local: 8080
           container: 8080
@@ -46,6 +51,15 @@ tasks:
       container: node-build-env
       command: yarn exec prettier -- -c *.ts
 
+  smoke-test:
+    description: Quickly confirm that the built application runs as expected.
+    run:
+      container: test-env
+      command: curl --fail --silent --show-error http://app:8080/ping
+    dependencies:
+      - app
+    prerequisites:
+      - build
 
 include:
   - type: git

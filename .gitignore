@@ -13,4 +13,6 @@ yarn-error.log*
 **/.batect/caches
 
 # App-specific
-build/
+.batect/app/index.js*
+.batect/app/package.json
+.batect/app/yarn.lock
