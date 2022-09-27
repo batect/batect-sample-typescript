@@ -1,7 +1,6 @@
 # Based on https://github.com/yesinteractive/dadjokes/blob/master/Dockerfile
 
-FROM alpine:3.11
-MAINTAINER YesInteractive- http://yes-interactive.com
+FROM alpine:3.15.6
 
 ARG VERSION=20211111
 
@@ -12,9 +11,7 @@ RUN apk --no-cache add \
         apache2-ssl \
         apache2-http2 \
      	unzip \
-    # Install PHP from community
-    && apk --no-cache --repository https://dl-4.alpinelinux.org/alpine/v3.11/community/ add \
-        php7=="7.3.22-r0" \
+        php7 \
         php7-apache2 \
         php7-common \
         php7-ctype \
@@ -27,8 +24,6 @@ RUN apk --no-cache add \
         php7-session \
         php7-sockets \
     # Run required config / setup for apache
-    # Ensure apache can create pid file
-    #&& mkdir /run/apache2 \
     # Fix group
     && sed -i -e 's/Group apache/Group www-data/g' /etc/apache2/httpd.conf \
     # Fix ssl module
