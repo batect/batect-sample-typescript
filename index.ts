@@ -27,7 +27,7 @@ app.get("/", async (_, res) => {
 
 app.get("/ping", async (_, res) => {
   res.send("pong");
-})
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}.`);
