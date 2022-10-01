@@ -64,4 +64,4 @@ tasks:
 include:
   - type: git
     repo: https://github.com/batect/node-bundle.git
-    ref: 0.46.0
+    ref: 0.47.0
