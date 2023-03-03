@@ -1,6 +1,6 @@
 # Based on https://github.com/yesinteractive/dadjokes/blob/master/Dockerfile
 
-FROM alpine:3.15.6
+FROM alpine:3.17.2
 
 ARG VERSION=20211111
 
