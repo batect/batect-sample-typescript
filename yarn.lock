@@ -47,10 +47,15 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.3.tgz#472eaab5f15c1ffdd7f8628bd4c4f753995ec79e"
   integrity sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==
 
-"@tsconfig/node18-strictest@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@tsconfig/node18-strictest/-/node18-strictest-1.0.0.tgz#d7c49f29ef95c47182995bd2bfcf8c177512a8de"
-  integrity sha512-bOuNKwO4Fzbt+Su5wqI9zNHwx5C25gLnutwVQA1sBZk0cW8UjVPVcwzIUhJIIJDUx7zDEbAwdCD2HfvIsV8dYg==
+"@tsconfig/node18@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@tsconfig/node18/-/node18-2.0.1.tgz#2d2e11333ef2b75a4623203daca264e6697d693b"
+  integrity sha512-UqdfvuJK0SArA2CxhKWwwAWfnVSXiYe63bVpMutc27vpngCntGUZQETO24pEJ46zU6XM+7SpqYoMgcO3bM11Ew==
+
+"@tsconfig/strictest@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@tsconfig/strictest/-/strictest-2.0.1.tgz#c8f42be4d2c8a8fcef0afd482b730c1d55733776"
+  integrity sha512-7JHHCbyCsGUxLd0pDbp24yz3zjxw2t673W5oAP6HCEdr/UUhaRhYd3SSnUsGCk+VnPVJVA4mXROzbhI+nyIk+w==
 
 "@types/body-parser@*":
   version "1.19.0"
